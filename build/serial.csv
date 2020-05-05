@@ -1,7 +1,8 @@
 # Loading file                ::   ../data.csv
 # Frequency vector size       ::   180001
 # Magnitude vector size       ::   180001
-# Smoothing frequency vector  ::  geomspace(start=0.1, stop=20, n=512)
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.88593 seconds
 sfrqs,smags
 0.1,1.45236
 0.101042,1.384

@@ -1,0 +1,30 @@
+# Loading file                ::   ../data.csv
+# Frequency vector size       ::   180001
+# Magnitude vector size       ::   180001
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.938499 seconds
+0.938499
+# Loading file                ::   ../data.csv
+# Frequency vector size       ::   180001
+# Magnitude vector size       ::   180001
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.886048 seconds
+0.886048
+# Loading file                ::   ../data.csv
+# Frequency vector size       ::   180001
+# Magnitude vector size       ::   180001
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.883895 seconds
+0.883895
+# Loading file                ::   ../data.csv
+# Frequency vector size       ::   180001
+# Magnitude vector size       ::   180001
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.883552 seconds
+0.883552
+# Loading file                ::   ../data.csv
+# Frequency vector size       ::   180001
+# Magnitude vector size       ::   180001
+# Smoothing frequency vector  ::   geomspace(start=0.1, stop=20, n=512)
+# Elapsed Time                ::   0.884019 seconds
+0.884019

@@ -2,9 +2,9 @@
 #include <vector>
 #include <cmath>
 #include <math.h>
+#include <chrono>
 
 #include "csv.h"
-
 
 void load(std::string &fname, std::vector<double> &frqs, std::vector<double> &mags){
   double frq;
@@ -119,7 +119,7 @@ int main(int argc, char **argv) {
   double stop=20;
   int n=512;  
   std::vector<double> sfrqs = geomspace(start, stop, n);
-  std::cout<<"# Smoothing frequency vector  ::  geomspace(start="<<start<<", "<<
+  std::cout<<"# Smoothing frequency vector  ::   geomspace(start="<<start<<", "<<
                                                         "stop="<<stop<<", "<<
                                                         "n="<<n<<")"<<std::endl;
 /*
@@ -131,8 +131,13 @@ int main(int argc, char **argv) {
 
   // Smooth
   float bandwidth = 40;
-  std::vector<double> smags = smooth_konno_ohmachi(frqs, mags, sfrqs, bandwidth);
   
+  std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+  std::vector<double> smags = smooth_konno_ohmachi(frqs, mags, sfrqs, bandwidth);
+  std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2-t1);
+  std::cout<<"# Elapsed Time                ::   "<<time_span.count()<<" seconds"<<std::endl;
+  std::cout<<time_span.count()<<std::endl; 
 /*
   // Debug -> Check smags
   std::cout<<"Smoothed magnitude size     ::  "<<smags.size()<<std::endl;
@@ -142,10 +147,11 @@ int main(int argc, char **argv) {
   }
 */
 
+/*
   // Write to stdout
   std::cout<<"sfrqs,smags"<<std::endl;
   for (int i=0; i<smags.size(); i++){
     std::cout<<sfrqs[i]<<","<<smags[i]<<std::endl;
   }
-
+*/
 }
