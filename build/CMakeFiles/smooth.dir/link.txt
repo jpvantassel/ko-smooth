@@ -1,0 +1,1 @@
+/opt/apps/gcc/6.3.0/bin/g++   -fpermissive -g   CMakeFiles/smooth.dir/src/main.cpp.o  -o smooth  -lpthread 
