@@ -1,1 +1,1 @@
-/opt/apps/gcc/6.3.0/bin/g++   -fpermissive -g   CMakeFiles/smooth.dir/src/main.cpp.o  -o smooth  -lpthread 
+/opt/intel/compilers_and_libraries_2018.2.199/linux/bin/intel64/icpc   -std=c++14 -O3 -DNDEBUG   CMakeFiles/smooth.dir/src/main.cpp.o  -o smooth  -lpthread 

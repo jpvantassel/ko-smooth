@@ -60,15 +60,15 @@ include CMakeFiles/smooth.dir/flags.make
 CMakeFiles/smooth.dir/src/main.cpp.o: CMakeFiles/smooth.dir/flags.make
 CMakeFiles/smooth.dir/src/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home1/04709/vantaj94/pcse/project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/smooth.dir/src/main.cpp.o"
-	/opt/apps/gcc/6.3.0/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/smooth.dir/src/main.cpp.o -c /home1/04709/vantaj94/pcse/project/src/main.cpp
+	/opt/intel/compilers_and_libraries_2018.2.199/linux/bin/intel64/icpc  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/smooth.dir/src/main.cpp.o -c /home1/04709/vantaj94/pcse/project/src/main.cpp
 
 CMakeFiles/smooth.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/smooth.dir/src/main.cpp.i"
-	/opt/apps/gcc/6.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home1/04709/vantaj94/pcse/project/src/main.cpp > CMakeFiles/smooth.dir/src/main.cpp.i
+	/opt/intel/compilers_and_libraries_2018.2.199/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home1/04709/vantaj94/pcse/project/src/main.cpp > CMakeFiles/smooth.dir/src/main.cpp.i
 
 CMakeFiles/smooth.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/smooth.dir/src/main.cpp.s"
-	/opt/apps/gcc/6.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home1/04709/vantaj94/pcse/project/src/main.cpp -o CMakeFiles/smooth.dir/src/main.cpp.s
+	/opt/intel/compilers_and_libraries_2018.2.199/linux/bin/intel64/icpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home1/04709/vantaj94/pcse/project/src/main.cpp -o CMakeFiles/smooth.dir/src/main.cpp.s
 
 # Object files for target smooth
 smooth_OBJECTS = \
