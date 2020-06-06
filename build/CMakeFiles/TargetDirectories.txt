@@ -1,3 +1,0 @@
-/home1/04709/vantaj94/pcse/project/build/CMakeFiles/rebuild_cache.dir
-/home1/04709/vantaj94/pcse/project/build/CMakeFiles/edit_cache.dir
-/home1/04709/vantaj94/pcse/project/build/CMakeFiles/smooth.dir
