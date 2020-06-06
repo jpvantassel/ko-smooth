@@ -4,12 +4,15 @@
 
 ## Getting Started
 
-### To compile
+### Parallel
 
-- Download or clone the repository.
-- Run: `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_CXX_COMPILER=g++ ..`.
-- Run: `make clean && make`.
+1. Download or clone the repository.
+2. Run: `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ -DCMAKE_CXX_BUILD_OMP=yes ..`.
+3. Run: `make clean && make`.
+4. Run: `./smooth ../examples/data.csv smooth_data.csv`.
 
-### To run
+### Serial
 
-- Run: `./smooth ../examples/data.csv smooth_data.csv`.
+Same as parallel, except with the second step swapped with:
+
+2. Run: `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_OMP=no ..`.

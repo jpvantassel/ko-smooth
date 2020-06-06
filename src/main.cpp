@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <omp.h>
 
 #include "csvtools.h"
 #include "numtools.h"
@@ -18,6 +19,10 @@ int main(int argc, char **argv)
   std::string ofname(argv[2]);
   std::cout << "# Saving to                   ::   " << ofname << std::endl;
 
+#ifdef _OPENMP
+  std::cout << "# Number of threads           ::   " << omp_get_max_threads() << std::endl;
+#endif
+
   // Load unsmoothed frequency and magnitude
   std::vector<double> frqs;
   std::vector<double> mags;
@@ -25,7 +30,7 @@ int main(int argc, char **argv)
   std::cout << "# Frequency vector size       ::   " << frqs.size() << std::endl;
   std::cout << "# Magnitude vector size       ::   " << mags.size() << std::endl;
 
-/*
+  /*
   // Debug -> View first 5 lines of file
   std::cout<<"Frequency, Magnitude"<<std::endl;
   for (int i=0; i<5; i++){
@@ -42,7 +47,7 @@ int main(int argc, char **argv)
             << "stop=" << stop << ", "
             << "n=" << n << ")" << std::endl;
 
-/*
+  /*
   // Debug -> Check sfrqs
   std::cout<<"# Smoothing frequency size    ::  "<<sfrqs.size()<<std::endl;
   std::cout<<"# Starting frequency          ::  "<<sfrqs.front()<<std::endl;
@@ -58,7 +63,7 @@ int main(int argc, char **argv)
   std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
   std::cout << "# Elapsed Time                ::   " << time_span.count() << " seconds" << std::endl;
 
-/*
+  /*
   // Debug -> Check smags
   std::cout<<"Smoothed magnitude size     ::  "<<smags.size()<<std::endl;
   std::cout<<"Frequency, Magnitude"<<std::endl;

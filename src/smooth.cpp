@@ -7,25 +7,28 @@ std::vector<double> smooth_konno_ohmachi(std::vector<double> &frqs, std::vector<
     double upper_limit = pow(10, n / bandwidth);
     double lower_limit = pow(10, -n / bandwidth);
 
-/*  
-  // Debug
-  std::cout<<"upper_limit, lower_limit "<<upper_limit<<", "<<lower_limit<<std::endl;
-*/
+    /*  
+    // Debug
+    std::cout<<"upper_limit, lower_limit "<<upper_limit<<", "<<lower_limit<<std::endl;
+    */
     std::vector<double> smags(sfrqs.size());
     double sumproduct;
     double sumwindow;
     double window;
     double fc;
 
-    // Loop across the center frequencies
+    double f;
+    double c_spectrum;
+    double f_on_fc;
+
+#ifdef _OPENMP
+#pragma omp parallel for default(none) private(sumproduct, sumwindow, window, fc, f, c_spectrum, f_on_fc) shared(sfrqs, frqs, smags, mags, upper_limit, lower_limit, bandwidth)
+#endif
     for (int f_index = 0; f_index < sfrqs.size(); f_index++)
     {
         fc = sfrqs[f_index];
         if (fc < 1E-6)
         {
-            // // Debug
-            // std::cout << "fc < 1E-6" << std::endl;
-
             smags[f_index] = 0;
             continue;
         }
@@ -37,9 +40,9 @@ std::vector<double> smooth_konno_ohmachi(std::vector<double> &frqs, std::vector<
         // Loop across true frequency vector
         for (int j = 0; j < frqs.size(); j++)
         {
-            double f = frqs[j];
-            double c_spectrum = mags[j];
-            double f_on_fc = f / fc;
+            f = frqs[j];
+            c_spectrum = mags[j];
+            f_on_fc = f / fc;
             if ((f < 1E-6) || (f_on_fc > upper_limit) || (f_on_fc < lower_limit))
                 continue;
             else if (std::abs(f - fc) < 1E-6)

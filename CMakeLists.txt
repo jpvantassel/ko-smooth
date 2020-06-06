@@ -10,8 +10,8 @@ SET(CMAKE_VERBOSE_MAKEFILE OFF)
 
 # General compile settings
 IF (NOT CMAKE_BUILD_TYPE)
- SET(CMAKE_BUILD_TYPE "debug")
- #SET(CMAKE_BUILD_TYPE "release")
+ SET(CMAKE_BUILD_TYPE "Debug")
+ #SET(CMAKE_BUILD_TYPE "Release")
 ENDIF (NOT CMAKE_BUILD_TYPE)
 
 # GNU specific settings
@@ -32,6 +32,17 @@ endif()
 # pthreads
 find_package (Threads)
 link_libraries (${CMAKE_THREAD_LIBS_INIT})
+
+# OpenMP
+if (CMAKE_CXX_BUILD_OMP MATCHES "yes")
+  find_package(OpenMP)
+  if (OPENMP_FOUND)
+    if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+      set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+      set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    endif()
+  endif()
+endif()
 
 # Include directories
 include_directories(BEFORE
