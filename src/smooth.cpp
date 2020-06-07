@@ -22,7 +22,7 @@ std::vector<double> smooth_konno_ohmachi(std::vector<double> &frqs, std::vector<
     double f_on_fc;
 
 #ifdef _OPENMP
-#pragma omp parallel for default(none) private(sumproduct, sumwindow, window, fc, f, c_spectrum, f_on_fc) shared(sfrqs, frqs, smags, mags, upper_limit, lower_limit, bandwidth)
+#pragma omp parallel for schedule(runtime) default(none) private(sumproduct, sumwindow, window, fc, f, c_spectrum, f_on_fc) shared(sfrqs, frqs, smags, mags, upper_limit, lower_limit, bandwidth)
 #endif
     for (int f_index = 0; f_index < sfrqs.size(); f_index++)
     {
