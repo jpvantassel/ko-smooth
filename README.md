@@ -2,7 +2,50 @@
 
 > Joseph P. Vantassel, The University of Texas at Austin
 
-## Getting Started
+## Background
+
+A recent project focused on developing an open-source Python package for
+for horizontal-to-vertical spectral ratio (HVSR) processing called
+[_hvsrpy_](https://github.com/jpvantassel/hvsrpy)
+prompted a study of the computational performance of the HVSR
+calculation, however this had to be concluded prematurely. This study presents a
+reexamination of the algorithm’s performance.
+
+HVSR processing
+involves the following steps: (1) the division of a long time-domain record into
+smaller time windows (typically 60 – 360 seconds in length), (2) transformation
+of these windows into the frequency domain using the Discrete Fourier Transform
+(DFT), (3) the smoothing of these frequency-domain representations
+(i.e., spectra), and (4) the division of the smoothed horizontal and vertical
+spectra. Initial performance tests on _hvsrpy_ indicated that
+approximately 60% of the computational cost incurred in the HVSR calculation was
+incurred in the smoothing stage. Therefore, this study focuses primarily on the
+smoothing algorithm.
+
+In particular, this study will compare the performance of a
+Python implementation, a Python implementation improved using just-in-time (jit)
+compilation, a serial implementation of the algorithm in C++, and a parallel
+implementation using C++ and OpenMP. This repository is host to the C++
+implementations see the [_sigpropy_](https://github.com/jpvantassel/sigpropy)
+repository (a dependency of the _hvsrpy_ package) for the Python implementations.
+
+## Results
+
+![cmp.svg](figs/cmp.svg)
+
+__Figure 1: Comparison of the results of the four methods. All methods are in excellent agreement.__
+
+![scaling.svg](figs/scaling.svg)
+
+__Figure 2: Parallel implementation's strong scaling considering various scheduling schemes.__
+
+![runtime.svg](figs/runtime.svg)
+
+__Figure 3: Runtime comparison between the four methods of interest.__
+
+## Want to try it for yourself?
+
+Instructions to compile and run the parallel and serial implementations are provided below.
 
 ### Parallel
 
